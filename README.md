@@ -5,7 +5,7 @@
 ---
 
 ###### version:1.1.1 date:2016.11.23
-1. s 
+1. 替换几个so库
 
 ###### version:1.1.0 date:2016.11.23
 1. 修复VR启动时序错乱导致崩溃
@@ -45,7 +45,7 @@
 	
 可以在场景中，实例化的SvrCamera节点的属性中启用`Anti Aliasing`。 注意，必须在SvrCamera上禁用HDR才能正确创建`anti-aliased eye buffers`
 
-	* Anisotropic Textures = Per Texture
+* Anisotropic Textures = Per Texture
 
 ### 其他事项
 1. 场景跳转前和退出应用前，请调用下面代码释放VR Camera
