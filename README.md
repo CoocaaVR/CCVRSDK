@@ -5,7 +5,7 @@
 ---
 
 ###### version:1.1.1 date:2016.11.23
-1. 替换几个so库
+1. 替换libsvrapi.so、libsvrplugin.so，提高稳定性
 
 ###### version:1.1.0 date:2016.11.23
 1. 修复VR启动时序错乱导致崩溃
