@@ -4,7 +4,7 @@
 
 ---
 
-###### Version:1.1.1 Date:2016.11.23
+###### Version:1.1.1 Date:2016.12.05
 1. 替换libsvrapi.so、libsvrplugin.so，提高稳定性
 
 ###### Version:1.1.0 Date:2016.11.23
