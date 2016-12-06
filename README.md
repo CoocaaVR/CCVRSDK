@@ -43,7 +43,7 @@
 	* Anisotropic Textures = Per Texture
 	* Anti Aliasing = Disabled
 	
-可以在场景中，实例化的SvrCamera节点的属性中启用`Anti Aliasing`。 注意，必须在SvrCamera上禁用HDR才能正确创建`anti-aliased eye buffers`
+可以在场景中，实例化的SvrCamera节点的属性中启用`Anti Aliasing`。 注意，必须在SvrCamera上禁用HDR才能正确创建`anti-aliased eye buffers`:
 
 * Anisotropic Textures = Per Texture
 
