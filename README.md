@@ -47,6 +47,8 @@
 
 * Anisotropic Textures = Per Texture
 
+---
+
 ### 其他事项
 1. 场景跳转前和退出应用前，请调用下面代码释放VR Camera
 
@@ -54,5 +56,6 @@
 2. 触摸板事件转成方向按键可参考`SVR/Coocaa/CCJoystick.cs`代码
 3. 返回按钮可以监听`KeyCode.Escape`
 4. 暂未开放Native OpenGL ES应用程序集成
+
 
 **END**
