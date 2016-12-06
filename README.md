@@ -1,11 +1,11 @@
-# # CoocaaVR SDK
+# CoocaaVR SDK
 
 ### 更新日志
 
 ---
 
 ###### version:1.1.1 date:2016.11.23
-1. 替换几个so库
+1. s 
 
 ###### version:1.1.0 date:2016.11.23
 1. 修复VR启动时序错乱导致崩溃
@@ -31,3 +31,28 @@
 3. 将 `SvrCamara.prefab`(路径为:`/ SVR/Prefabs/SvrCamara`)拖动到场景中。**注意:请保留原来tag为MainCamara的Camara。**
 4. 创建`SvrCamera`的实例并运 ，显示两个摄像头表示配置完成。(使用本SDK，需要在VR设备上进行调试，PC上显示的一些异常信息不影响VR设备正常使)
 5. 在工程里搜索文件`Androidmanifest`，将Androidmanifest 文件中的`android:label`字段的值修改为apk显示名称，`pack-age`的值改为apk包名。  
+
+---
+
+### 编译配置
+
+1. 选择`File -> Build Settings -> Android`，然后选择`player setting`
+2. 在`Resolution and Presentation`部分中，将`Default Orientation`默认 向设置为`Landscape Left`
+3. 在`Other Settings`中，禁用`Multithreaded Rendering`
+4. 选择`Edit -> Project Settings -> Quality`
+	* Anisotropic Textures = Per Texture
+	* Anti Aliasing = Disabled
+	
+可以在场景中，实例化的SvrCamera节点的属性中启用`Anti Aliasing`。 注意，必须在SvrCamera上禁用HDR才能正确创建`anti-aliased eye buffers`
+
+	* Anisotropic Textures = Per Texture
+
+### 其他事项
+1. 场景跳转前和退出应用前，请调用下面代码释放VR Camera
+
+		SvrPlugin.Instance.EndVr ();
+2. 触摸板事件转成方向按键可参考`SVR/Coocaa/CCJoystick.cs`代码
+3. 返回按钮可以监听`KeyCode.Escape`
+4. 暂未开放Native OpenGL ES应用程序集成
+
+**END**
