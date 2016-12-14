@@ -1,0 +1,13 @@
+Library/
+Temp/
+Obj/
+ProjectSettings/
+*.sln
+*.csproj
+*.userprefs
+*.unityproj
+*.DS_Store
+*.pidb
+*.vs
+*.suo
+*.apk
