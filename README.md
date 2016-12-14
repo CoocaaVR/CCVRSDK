@@ -4,22 +4,22 @@
 
 ---
 
-###### version:1.1.1 date:2016.11.23
-1. 替换几个so库
+###### Version:1.1.1 Date:2016.12.05
+1. 替换libsvrapi.so、libsvrplugin.so，提高稳定性
 
-###### version:1.1.0 date:2016.11.23
+###### Version:1.1.0 Date:2016.11.23
 1. 修复VR启动时序错乱导致崩溃
 
-###### version:1.0.3.032 date:2016.11.16
+###### Version:1.0.3.032 Date:2016.11.16
 1. 解决demo boxworld运 异常的问题
 
-###### version:1.0.3.031 date:2016.11.07
+###### Version:1.0.3.031 Date:2016.11.07
 1. 新增AndroidManifast 件
 2. 替换libsvrspi.so
 3. 新增VR模式退出推迟
 4. 新增补充事项
 
-###### version:1.0.0.031 date:2016.10.24
+###### Version:1.0.0.031 Date:2016.10.24
 1. 建档
 
 ---
