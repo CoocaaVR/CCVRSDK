@@ -16,7 +16,7 @@
     <!-- 用于判断是否使用了酷开VRSDK -->
         <meta-data android:value="true" android:name="COOCAA_VR_APP"></meta-data>
   </application>
-  <uses-sdk android:minSdkVersion="9" android:targetSdkVersion="23" />
+  <uses-sdk android:minSdkVersion="23" android:targetSdkVersion="23" />
   <uses-feature android:glEsVersion="0x00020000" />
   <uses-feature android:name="android.hardware.touchscreen" android:required="false" />
   <uses-feature android:name="android.hardware.touchscreen.multitouch" android:required="false" />
