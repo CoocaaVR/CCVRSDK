@@ -4,6 +4,9 @@
 
 ---
 
+###### Version:1.1.2 Date:2016.12.20
+1. 新增音量按键回调；2.修复不识别U3d设置的应用名和包名
+
 ###### Version:1.1.1 Date:2016.12.05
 1. 替换libsvrapi.so、libsvrplugin.so，提高稳定性
 
