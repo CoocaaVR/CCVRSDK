@@ -32,8 +32,7 @@
 1. 在你的项目中，从`Assets -> Import Package -> Custom Package`导入`CoocaaVR_SDK.unitypackage`文件。
 2. 此时在Unity中出现对话框，请保留所有复选框，并选择导入。
 3. 将 `SvrCamara.prefab`(路径为:`/ SVR/Prefabs/SvrCamara`)拖动到场景中。**注意:请保留原来tag为MainCamara的Camara。**
-4. 创建`SvrCamera`的实例并运 ，显示两个摄像头表示配置完成。(使用本SDK，需要在VR设备上进行调试，PC上显示的一些异常信息不影响VR设备正常使)
-5. 在工程里搜索文件`Androidmanifest`，将Androidmanifest 文件中的`android:label`字段的值修改为apk显示名称，`pack-age`的值改为apk包名。  
+4. 创建`SvrCamera`的实例并运 ，显示两个摄像头表示配置完成。(使用本SDK，需要在VR设备上进行调试，PC上显示的一些异常信息不影响VR设备正常使用)  
 
 ---
 
