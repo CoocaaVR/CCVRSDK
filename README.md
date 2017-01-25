@@ -5,7 +5,7 @@
 ---
 
 ###### Version:1.1.3 Date:2017.01.25
-1. 新增应用安装接口(用法请参考SVR/Coocaa/CCPmApi.cs)。
+1. 新增应用安装接口(用法请参考SVR/Coocaa/CCPmApi.cs)
 
 ###### Version:1.1.2 Date:2016.12.20
 1. 新增音量按键回调；2.修复不识别U3d设置的应用名和包名
