@@ -47,7 +47,7 @@ public class CCPmApi {
 
 	/**
 	 * 关闭安装应用弹窗，取消安装
-	 *／ 
+	 */ 
 	public static void hide(){
 		using(AndroidJavaClass cls = new AndroidJavaClass("com.coocaa.vr.sdk.CCPmApi")){
 			cls.CallStatic<AndroidJavaObject> ("getInstance").Call ("cancelInstall");
