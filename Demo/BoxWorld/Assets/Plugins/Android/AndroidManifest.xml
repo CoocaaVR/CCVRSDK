@@ -10,7 +10,7 @@
   			android:debuggable="false" 
   			android:isGame="true" 
   			android:banner="@drawable/app_banner">
-    <activity android:name="com.coocaa.vr.sdk.CCVrActivity" 
+    <activity android:name="com.coocaa.vr.sdk.CCVrUiActivity" 
     		android:screenOrientation="landscape" 
     		android:launchMode="singleTask" 
     		android:configChanges="mcc|mnc|locale|touchscreen|keyboard|keyboardHidden|navigation|orientation|screenLayout|uiMode|screenSize|smallestScreenSize|fontScale">
