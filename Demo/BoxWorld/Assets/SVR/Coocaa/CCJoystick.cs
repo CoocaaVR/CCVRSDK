@@ -18,11 +18,21 @@ public class CCJoystick : MonoBehaviour {
 	 */ 
 	private void onJoystickEvent(JOYSTICK_DIRECTION direction) {
 		print ("CCJoystick direction :"+joystickDirection);
+		switch (direction) {
+		case JOYSTICK_DIRECTION.UP:
+			break;
+		case JOYSTICK_DIRECTION.DOWN:
+			break;
+		case JOYSTICK_DIRECTION.FRONT:
+			break;
+		case JOYSTICK_DIRECTION.BACK:
+			break;
+		}
 	}
 
 	void Update () {
 		joystickDirection = JOYSTICK_DIRECTION.NONE;
-		if (Input.touchCount > 0) {
+		if (Input.touchCount > 0 && Input.GetTouch (0).phase == TouchPhase.Began) {
 			Touch touch = Input.GetTouch (0);
 			float x = touch.position.x / Screen.width;
 			float y = touch.position.y / Screen.height;
