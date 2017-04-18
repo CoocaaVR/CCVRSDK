@@ -70,6 +70,7 @@
 2. 触摸板事件转成方向按键可参考`SVR/Coocaa/CCJoystick.cs`代码
 3. 返回按钮可以监听`KeyCode.Escape`
 4. 暂未开放Native OpenGL ES应用程序集成
+5. Unity5.6.0版本编译，有可能会出现画面切割的问题，待验证
 
 
 **END**
