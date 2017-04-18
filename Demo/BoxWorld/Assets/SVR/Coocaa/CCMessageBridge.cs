@@ -15,4 +15,11 @@ public class CCMessageBridge : MonoBehaviour {
 			print ("ccvr KEYCODE_BACK");
 		}
 	}
+
+	/**
+	 * data为json格式的电量信息
+	 */
+	public void getBatteryInfo(string data){
+	}
+
 }
