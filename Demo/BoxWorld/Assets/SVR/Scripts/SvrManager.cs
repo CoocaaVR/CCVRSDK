@@ -67,6 +67,7 @@ public class SvrManager : MonoBehaviour
 			enabled = false;
 			return;
 		}	
+		print ("CCVRSDK version : " + CCVR.version);
 	}
 
 	bool ValidateReferencedComponents()
