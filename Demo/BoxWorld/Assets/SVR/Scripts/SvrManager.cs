@@ -52,6 +52,8 @@ public class SvrManager : MonoBehaviour
     private bool isPaused = false;
     private bool isBeginVR = false;
 
+	public static bool showLayoutBuffer = false;
+
     public bool DisableInput
     {
         get { return disableInput; }
@@ -94,6 +96,7 @@ public class SvrManager : MonoBehaviour
 	// Use this for initialization
 	IEnumerator Start ()
 	{
+		Debug.LogError ("### Start enter.");
 		yield return StartCoroutine(Initialize());
         if(isScreenOn())
         {
@@ -105,6 +108,7 @@ public class SvrManager : MonoBehaviour
             StartCoroutine(SubmitFrame());
 
             isBeginVR = true;
+			Debug.LogError ("### Start enter. isBeginVR = true");
         }
 		
 	}
@@ -210,7 +214,9 @@ public class SvrManager : MonoBehaviour
 
     private void OnApplicationPause(bool pause)
     {
-        SetPause(pause);
+		print ("### OnApplicationPause " + pause);
+		SetPause(pause);
+
     }
 
     public void SetPause(bool pause)
@@ -218,6 +224,7 @@ public class SvrManager : MonoBehaviour
         if (!initialized || isPaused == pause)
 			return;
 
+		print ("### SetPause " + pause);
         if (pause)
 		{
 			OnPause();
@@ -230,9 +237,11 @@ public class SvrManager : MonoBehaviour
 
     void OnPause()
 	{
+		Debug.LogError ("### OnPause enter");
         isPaused = true;
         if(!isBeginVR)
         {
+			Debug.LogError ("### OnPause enter. isBeginVR = false");
             return;
         }
 		StopAllCoroutines();
@@ -243,8 +252,9 @@ public class SvrManager : MonoBehaviour
 
     IEnumerator OnResume()
 	{
+		Debug.LogError ("### OnResume enter 0");
         yield return StartCoroutine(plugin.BeginVr());
-
+		Debug.LogError ("### OnResume enter 1");
         // Do this AFTER BeginVr() because it sets performance levels to it's own defaults
         plugin.SetPerformanceLevels((int)cpuPerfLevel, (int)gpuPerfLevel);
 
@@ -255,7 +265,7 @@ public class SvrManager : MonoBehaviour
 
     void LateUpdate()
     {
-        if (!initialized || isPaused || !isBeginVR)
+        if (!initialized || isPaused)
         {
             return;
         }
@@ -340,9 +350,10 @@ public class SvrManager : MonoBehaviour
         {
             if (mManager != null)
             {
-                Debug.LogError("SDKBridgeCallBack onScreenOn");
+				print("### SDKBridgeCallBack onScreenOn");
                 if (!mManager.isBeginVR)
                 {
+					print("### onScreenOn enter isBeginVR");
                     mManager.StartCoroutine(mManager.OnResume());
                     mManager.isBeginVR = true;
                 }
@@ -353,7 +364,7 @@ public class SvrManager : MonoBehaviour
         {
             if (mManager != null)
             {
-                Debug.LogError("SDKBridgeCallBack onScreenOff");
+				print("### SDKBridgeCallBack onScreenOff");
             }
         }
     }

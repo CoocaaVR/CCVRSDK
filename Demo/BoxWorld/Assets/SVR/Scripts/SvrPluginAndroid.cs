@@ -18,6 +18,12 @@ public class SvrPluginAndroid : SvrPlugin
 	                                                   int leftEyeTextureId,
 	                                                   int rightEyeTextureId);
 	[DllImport("svrplugin")]
+	private static extern void SvrSubmitFrameEventDataEx(int frameIndex,
+		int leftEyeTextureId,
+		int rightEyeTextureId,
+		int leftOverlayBufferId,
+		int rightOverlayBufferId);
+	[DllImport("svrplugin")]
 	private static extern void SvrSetTrackingModeEventData(int mode);
 	
 	[DllImport("svrplugin")]
@@ -40,6 +46,8 @@ public class SvrPluginAndroid : SvrPlugin
 	                                            ref float targetFovXRad,
 	                                       		ref float targetFovYRad);
 
+	int leftLayoutBufferId,rightLayoutBufferId;
+
 	private enum RenderEvent
 	{
 		Initialize,
@@ -60,11 +68,15 @@ public class SvrPluginAndroid : SvrPlugin
 			Debug.LogError("SvrPlugin not supported in unity editor!");
 			throw new InvalidOperationException();
 		}
-
 		return new SvrPluginAndroid ();
 	}
 
-	private SvrPluginAndroid() {}
+	private SvrPluginAndroid() {
+		using (AndroidJavaClass cls = new AndroidJavaClass ("com.coocaa.vr.sdk.CCSystemApi")) {
+			leftLayoutBufferId = cls.CallStatic<int> ("getLeftFocusId");
+			rightLayoutBufferId = cls.CallStatic<int> ("getRightFocusId");
+		}
+	}
 
 	private void IssueEvent(RenderEvent e)
 	{
@@ -148,7 +160,11 @@ public class SvrPluginAndroid : SvrPlugin
 
 	public override void SubmitFrame(int frameIndex, int leftEyeTextureId, int rightTextureId)
 	{
-		SvrSubmitFrameEventData (frameIndex, leftEyeTextureId, rightTextureId);
+		if (SvrManager.showLayoutBuffer) {
+			SvrSubmitFrameEventDataEx (frameIndex, leftEyeTextureId, rightTextureId, leftLayoutBufferId, rightLayoutBufferId);
+		} else {
+			SvrSubmitFrameEventDataEx (frameIndex, leftEyeTextureId, rightTextureId,0,0);
+		}
 		IssueEvent (RenderEvent.SubmitFrame);
 	}
 
