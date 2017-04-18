@@ -3,8 +3,11 @@
 ### 更新日志
 
 ---
+###### Version:1.1.4 Date:2017.04.18
+1. 新增控制led灯和获取Mac等接口（CCSystemApi）
+
 ###### Version:1.1.4 Date:2017.04.01
-1. 新增关机和重启的接口，CCSystemApi
+1. 新增关机和重启的接口（CCSystemApi）
 
 ###### Version:1.1.4 Date:2017.02.13
 1. 修复弹出应用安装界面时熄灭屏幕导致崩溃；
