@@ -1,4 +1,4 @@
 ﻿
 public class CCVR  {
-	public const string version = "1.1.3.170418";
+	public const string version = "1.1.4.170418";
 }
