@@ -10,6 +10,7 @@
   			android:debuggable="false" 
   			android:isGame="true" 
   			android:label="@string/app_name"
+			android:hardwareAccelerated="true"
   			android:banner="@drawable/app_banner">
     <activity android:name="com.coocaa.vr.sdk.CCVrUiActivity" 
     		android:screenOrientation="landscape" 

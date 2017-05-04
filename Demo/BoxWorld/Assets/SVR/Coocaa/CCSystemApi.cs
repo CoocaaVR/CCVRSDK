@@ -33,14 +33,15 @@ public class CCSystemApi  {
 		}
 	}
 
-	/// <summary>
+
+/// <summary>
 	/// Sends the LED.设置呼吸灯颜色以及状态
 	/// color:red、blue、green、colors分别代表红、绿、蓝、彩色
 	/// mode:1循环、2常亮、3亮一秒 其他值表示循环,默认循环模式
 	/// 注：彩色仅循环模式
-	/// </summary>
-	/// <param name="color">red</param>
-	/// <param name="mode">1</param>
+/// </summary>
+/// <param name="color">red</param>
+/// <param name="mode">1</param>
 	public static void sendLED(string color,int mode){
 		using (AndroidJavaClass cls = new AndroidJavaClass ("com.coocaa.vr.sdk.CCSystemApi")) {
 			cls.CallStatic ("sendLED",getContext (),color,mode);
@@ -48,7 +49,6 @@ public class CCSystemApi  {
 	}
 	/// <summary>
 	/// Requests the battery info.
-	/// 电量回调方法在CCMessageBridge里
 	/// </summary>
 	public static void requestBatteryInfo(){
 		using (AndroidJavaClass cls = new AndroidJavaClass ("com.coocaa.vr.sdk.CCSystemApi")) {
@@ -56,11 +56,26 @@ public class CCSystemApi  {
 		}
 	}
 
+	/// <summary>
+	/// Gets the mac address.
+	/// </summary>
+	/// <returns>The mac address.</returns>
 	public static string getMacAddress(){
 		string macAddress;
 		using (AndroidJavaClass cls = new AndroidJavaClass ("com.coocaa.vr.sdk.CCSystemApi")) {
 			macAddress = cls.CallStatic <string>("getMacAddress", getContext ());
 		}
 		return macAddress;
+	}
+
+	/// <summary>
+	/// Sets the VOL.
+	/// maxVolume = 15
+	/// </summary>
+	/// <param name="volume">Volume.</param>
+	public static void setVOL(int volume){
+		using (AndroidJavaClass cls = new AndroidJavaClass ("com.coocaa.vr.sdk.CCSystemApi")) {
+			cls.CallStatic ("setVOL",getContext (),volume);
+		}
 	}
 }

@@ -51,8 +51,9 @@ public class SvrManager : MonoBehaviour
     private bool disableInput = false;
     private bool isPaused = false;
     private bool isBeginVR = false;
+    private Coroutine onResume = null;
 
-	public static bool showLayoutBuffer = false;
+    public static bool showLayoutBuffer = false;
 
     public bool DisableInput
     {
@@ -67,7 +68,6 @@ public class SvrManager : MonoBehaviour
 			enabled = false;
 			return;
 		}	
-		print ("CCVRSDK version : " + CCVRSDK.version);
 	}
 
 	bool ValidateReferencedComponents()
@@ -215,7 +215,6 @@ public class SvrManager : MonoBehaviour
 
     private void OnApplicationPause(bool pause)
     {
-		print ("### OnApplicationPause " + pause);
 		SetPause(pause);
 
     }
@@ -224,29 +223,28 @@ public class SvrManager : MonoBehaviour
 	{
         if (!initialized || isPaused == pause)
 			return;
-
-		print ("### SetPause " + pause);
         if (pause)
 		{
 			OnPause();
 		}
-		else
-		{
-			StartCoroutine(OnResume());
-		}
+        else if (onResume == null)
+        {
+            onResume = StartCoroutine(OnResume());
+            //StartCoroutine(OnResume());
+        }
     }
 
     void OnPause()
 	{
-		Debug.LogError ("### OnPause enter");
         isPaused = true;
-        if(!isBeginVR)
+        if (!isBeginVR)
         {
 			Debug.LogError ("### OnPause enter. isBeginVR = false");
             return;
         }
 		StopAllCoroutines();
         plugin.EndVr ();
+		onResume = null;
         RenderTexture.active = null;
         GL.Clear(false, true, Color.black);
     }
